@@ -27,3 +27,5 @@ These may be in the format like:
 Anytime a user 
 
     type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+
+That command only works for cmd, to run from Powershell replace `%userprofile` with `$Env:userprofile`
