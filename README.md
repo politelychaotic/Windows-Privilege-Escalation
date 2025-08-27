@@ -45,3 +45,7 @@ Windows let's you use the credentials of other users. This also allows us to sav
 While you can't see the actual passwords, if you notice any credentials worth trying, you can use them with the `runas` command and the `/savecred` option:
 
     runas /savecred /user:admin cmd.exe
+
+### IIS Configuration (Internet Information Services)
+
+The IIS is the default web server on Windows.
