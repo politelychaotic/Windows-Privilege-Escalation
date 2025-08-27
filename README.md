@@ -15,8 +15,8 @@ These setups require the admin account for initial setup, which might be stored 
 
 These may be in the format like:
 
-<Credentials>
-    <Username>Administrator</Username>
-    <Domain>thm.local</Domain>
-    <Password>MyPassword123</Password>
-</Credentials>
+    <Credentials>
+        <Username>Administrator</Username>
+        <Domain>thm.local</Domain>
+        <Password>MyPassword123</Password>
+    </Credentials>
