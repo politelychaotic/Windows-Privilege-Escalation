@@ -22,4 +22,6 @@ These may be in the format like:
     </Credentials>
 
 
-## Powershell History
+### Powershell History
+
+    type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
