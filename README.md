@@ -20,3 +20,6 @@ These may be in the format like:
         <Domain>thm.local</Domain>
         <Password>MyPassword123</Password>
     </Credentials>
+
+
+## Powershell History
