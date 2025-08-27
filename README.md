@@ -24,4 +24,6 @@ These may be in the format like:
 
 ### Powershell History
 
+Anytime a user 
+
     type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
