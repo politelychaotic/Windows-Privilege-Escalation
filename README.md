@@ -29,3 +29,15 @@ Anytime a user runs a command using Powershell, it is stored in a file. This hel
     type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
 
 That command only works for cmd, to run from Powershell replace `%userprofile` with `$Env:userprofile`
+
+
+
+### Saved Windows Credentials
+
+Windows let's you use the credentials of other users. This also allows us to save credentials to the system. This command will list saved credentials:
+    
+    cmdkey /list
+
+While you can't see the actual passwords, if you notice any credentials worth trying, you can use them with the `runas` command and the `/savecred` option:
+
+    runas /savecred /user:admin cmd.exe
