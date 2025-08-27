@@ -24,7 +24,7 @@ These may be in the format like:
 
 ### Powershell History
 
-Anytime a user 
+Anytime a user runs a command using Powershell, it is stored in a file. This helps with repeating commands, but if a user runs a command that includes a password directly in the command, it can later be retrieved by using this command in cmd:
 
     type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
 
