@@ -11,3 +11,10 @@ These setups require the admin account for initial setup, which might be stored 
     C:\Windows\Panther\Unattend\Unattend.xml
     C:\Windows\system32\sysprep.inf
     C:\Windows\system32\sysprep\sysprep.xml
+
+These may be in the format like:
+<Credentials>
+    <Username>Administrator</Username>
+    <Domain>thm.local</Domain>
+    <Password>MyPassword123</Password>
+</Credentials>
