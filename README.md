@@ -48,4 +48,25 @@ While you can't see the actual passwords, if you notice any credentials worth tr
 
 ### IIS Configuration (Internet Information Services)
 
-The IIS is the default web server on Windows.
+The IIS is the default web server on Windows. The config for websites on IIS is stored in `web.config`, which can store passwords for databased or configured authentication mechanisms. 
+Depending on the version, `web.config` can be found in one of these locations:
+    1. `C:\inetpub\wwwroot\web.config`
+    2. `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config`
+
+A quick method to find connection stringson the file:
+
+    type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString
+
+### Retrieve Credentials from PuTTY
+
+PuTTY is an SSH client found commonly on Windows machines. Users can store sessions which includes IP, user, and other configurations. 
+PuTTY does NOT allow users to store SSH passwords, but they can store proxy configurations that store cleartext credentials.
+
+To retrieve the stored proxy credentials, you can search under the following registry key for ProxyPassword with the following command:
+
+    reg query HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\ /f "Proxy" /s
+
+*_Note: Simon Tatham is the creator of PuTTY (and his name is part of the path), not the username for which we are retrieving the password. The stored proxy username should also be visible after running the command above._*
+
+
+Just as putty stores credentials, any software that stores passwords, including browsers, email clients, FTP clients, SSH clients, VNC software and others, will have methods to recover any passwords the user has saved.
