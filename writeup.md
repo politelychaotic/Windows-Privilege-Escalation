@@ -1,6 +1,7 @@
 #### A password for the julia.jones user has been left on the Powershell history. What is the password?
 
 PS type $Env:userprofile\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+
 cmdkey /add:thmdc.local /user:julia.jones /pass:ZuperCkretPa5z
 
 
