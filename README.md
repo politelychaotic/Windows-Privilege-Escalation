@@ -70,3 +70,24 @@ To retrieve the stored proxy credentials, you can search under the following reg
 
 
 Just as putty stores credentials, any software that stores passwords, including browsers, email clients, FTP clients, SSH clients, VNC software and others, will have methods to recover any passwords the user has saved.
+
+
+
+### Scheduled Tasks
+Scheduled tasks can be listed from the command line using `schtasks` without options. To retrieve detailed info about a service, use a command like:
+
+    schtasks /query /tn {task} /fo list /v
+
+You will get lots of info about the task, but what we want to look for is the **Task to Run** parameter indicating what gets executed by the scheduled task, and the **Run As User** parameter, which shows the user that will be used to execut the task.
+
+If our current user can modify or overwrite the **Task to Run** executable, we can control what gets executed by the **task user**, resulting in simple privesc.
+
+To check the permissions on the executable: `icacls`:
+
+    icacls c:\tasks\schtask.bat
+    :\tasks\schtask.bat NT AUTHORITY\SYSTEM:(I)(F)
+                    BUILTIN\Administrators:(I)(F)
+                    BUILTIN\Users:(I)(F)
+
+As shown in the result, the **BUILTIN\Users** group has full access (F) over the task's binary. Meaning we can modify the `.bat` file and insert any payload we like.
+    
